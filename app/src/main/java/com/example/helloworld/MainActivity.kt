@@ -2,7 +2,9 @@
 package com.example.helloworld
 
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,6 +29,7 @@ class MainActivity : ComponentActivity() { // MainActivity -> ComponentActivity 
          * 별 다른 세팅을 해주지 않으면 savedInstanceState의 값이 Null로 리턴된다.
          */
         super.onCreate(savedInstanceState)
+
         setContent {
             HelloWorldTheme {
                 // A surface container using the 'background' color from the theme
@@ -34,9 +37,22 @@ class MainActivity : ComponentActivity() { // MainActivity -> ComponentActivity 
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("yeonuk")
+//                    Greeting("yeonuk")
+                    setContentView(R.layout.activity_yeonuk)
+
+
                 }
             }
+        }
+
+        settingButton()
+    }
+
+    fun settingButton() {
+        val button = findViewById<Button>(R.id.button)
+        button.setOnClickListener{
+            val intent = Intent(this, SubActivity::class.java)
+            startActivity(intent)
         }
     }
 }
@@ -56,3 +72,4 @@ fun GreetingPreview() {
         Greeting("Android")
     }
 }
+
