@@ -6,15 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.helloworld.ui.theme.HelloWorldTheme
 
 // MainActivity는 ComponentActivity 클래스를 상속받고 있다.
 class MainActivity : ComponentActivity() { // MainActivity -> ComponentActivity -> Activity
@@ -29,27 +20,11 @@ class MainActivity : ComponentActivity() { // MainActivity -> ComponentActivity 
          * 별 다른 세팅을 해주지 않으면 savedInstanceState의 값이 Null로 리턴된다.
          */
         super.onCreate(savedInstanceState)
-
-        setContent {
-            HelloWorldTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-//                    Greeting("yeonuk")
-                    setContentView(R.layout.activity_yeonuk)
-
-
-                }
-            }
-        }
-
+        setContentView(R.layout.activity_main)
         settingButton()
     }
-
     fun settingButton() {
-        val button = findViewById<Button>(R.id.button)
+        val button = findViewById<Button>(R.id.button_main)
         button.setOnClickListener{
             val intent = Intent(this, SubActivity::class.java)
             startActivity(intent)
@@ -57,19 +32,4 @@ class MainActivity : ComponentActivity() { // MainActivity -> ComponentActivity 
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    HelloWorldTheme {
-        Greeting("Android")
-    }
-}
 
