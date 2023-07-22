@@ -2,4 +2,6 @@
     <string name="app_name">HelloWorld</string>
     <string name="main_activity_btn">GO TO SUB</string>
     <string name="sub_activity_btn">This is sub</string>
+    <string name="button_red_fragment">Red Fragment</string>
+    <string name="button_blue_fragment">Blue Fragment</string>
 </resources>
